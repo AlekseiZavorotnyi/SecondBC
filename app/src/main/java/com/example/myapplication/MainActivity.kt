@@ -52,7 +52,6 @@ data class CatResponse(
 }
 
 
-// Упрощённая модель
 data class CatItem(
     val id: String,
     val url: String,
@@ -73,13 +72,6 @@ data class CatItem(
     }
 }
 
-
-
-
-
-// -----------------------------------------------------------------------------------------------
-// API сервис
-// -----------------------------------------------------------------------------------------------
 interface CatApiService {
     @GET("api/cats")
     suspend fun getCats(
@@ -88,9 +80,6 @@ interface CatApiService {
     ): List<CatResponse>
 }
 
-// -----------------------------------------------------------------------------------------------
-// PagingSource
-// -----------------------------------------------------------------------------------------------
 class CatsPagingSource(
     private val apiService: CatApiService
 ) : PagingSource<Int, CatItem>() {
@@ -123,9 +112,6 @@ class CatsPagingSource(
     }
 }
 
-// -----------------------------------------------------------------------------------------------
-// ViewModel
-// -----------------------------------------------------------------------------------------------
 class MainViewModel : ViewModel() {
 
     private val moshi = Moshi.Builder()
@@ -160,9 +146,6 @@ class MainViewModel : ViewModel() {
     }
 }
 
-// -----------------------------------------------------------------------------------------------
-// UI компоненты
-// -----------------------------------------------------------------------------------------------
 @Composable
 fun CatCard(
     cat: CatItem,
@@ -231,9 +214,6 @@ fun StartScreen(onStart: () -> Unit) {
     }
 }
 
-// -----------------------------------------------------------------------------------------------
-// Экран
-// -----------------------------------------------------------------------------------------------
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
@@ -304,9 +284,6 @@ fun MainScreen() {
     }
 }
 
-// -----------------------------------------------------------------------------------------------
-// Activity
-// -----------------------------------------------------------------------------------------------
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
