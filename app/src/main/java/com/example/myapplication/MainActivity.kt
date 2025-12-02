@@ -181,7 +181,6 @@ fun LoadingIndicator() {
         CircularProgressIndicator()
     }
 }
-
 @Composable
 fun ErrorRetrySection(message: String, onRetry: () -> Unit) {
     Column(
