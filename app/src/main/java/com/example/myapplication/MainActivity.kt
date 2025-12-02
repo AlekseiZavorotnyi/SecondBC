@@ -40,9 +40,6 @@ import kotlinx.coroutines.launch
 
 private const val TAG = "CatGallery"
 
-// -----------------------------------------------------------------------------------------------
-// Правильные модели для API CATAAS
-// -----------------------------------------------------------------------------------------------
 @JsonClass(generateAdapter = true)
 data class CatResponse(
     @Json(name = "id") val id: String,
@@ -51,7 +48,7 @@ data class CatResponse(
     @Json(name = "mimetype") val mimetype: String? = null
 ) {
     val isValid: Boolean
-        get() = !id.isNullOrEmpty()  // здесь всё корректно
+        get() = !id.isNullOrEmpty()
 }
 
 
